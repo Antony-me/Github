@@ -1,0 +1,30 @@
+.profile-photo{
+    background-color: yellow;
+    widows: 5%;
+    height: 15%;
+}
+ .jumbotron p,h1{
+     text-align: center;
+}
+ .jumbotron{
+     background-color:aqua;
+ }
+ 
+.col-sm-3 img{
+    width: 50%;
+}
+
+.col-sm-3{
+    padding: 2%;
+}
+
+.header{
+    background-color: rgb(2, 2, 41);
+    width: 100%;
+    height: 5%;
+    border: 2pxsolid red;
+    color: white;
+}
+.footer{
+    text-align: center;
+}
