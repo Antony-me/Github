@@ -18,9 +18,10 @@ import { SearchComponent } from './search/search.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
+  
   providers: [ProfileService],
   bootstrap: [AppComponent]
-})
+})  
 export class AppModule { }

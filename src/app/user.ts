@@ -1,3 +1,7 @@
 export class User {
-    // constructor(public login:string, public username:string, public avatar_url: any, public email:string)
-}
+    static result: any;
+    constructor(public url:string, public login:string, public html_url:string,  public location:string, 
+       public public_repos:number, public followers:number, public following:number, public avatar_url:string, public created_at:Date ){
+  
+    }
+  }
