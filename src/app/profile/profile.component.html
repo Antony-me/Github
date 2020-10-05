@@ -4,7 +4,7 @@
 </div>
 <div class="jumbotron">
     <h1></h1>
-    <h1>GitHub Finder</h1>
+    <h1>GitHub Finder</h1> <hr> <hr>
     <p>This is a web Application that searches and displays GitHub Profiles of github Public users.
         You can search for Usernames of users and there <br> Github information will be displayed together 
         with their personal detailes that they have made public at Github</p>
@@ -16,48 +16,31 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3">
-                                <div class="panel-heading">User Profile</div>
-                                <ul>
-                                    <li>Name</li>
-                                    <li>Username</li>
-                                    <li>Email</li>
-                                    <li>Website</li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-3">
-                                <img src="../../assets/tag.png" alt="">
+                            
+                                <img src="{{profile.avatar_url}}" alt="">
                             </div>
                             <div class="col-ms-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item">Bio:................................................</li>
-                                    <li class="list-group-item">Company:</li>
-                                    <li class="list-group-item">Followers:....</li>
-                                    <li class="list-group-item">Following:....</li>
-                                </ul>
-                            </div>
-                            <div class="com-sm-3">
-                                <h4>Repositories</h4>
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
+                                    <li class="list-group-item">Username: <br>{{profile.login}}</li>
+                                    <li class="list-group-item">Email: <br> {{profile.email}}</li>
+                                    <li class="list-group-item">Websites: <br> </li>
+                                    <li class="list-group-item">Bio:<br>{{profile.bio}}</li>
+                                    <li class="list-group-item">Followers: <br> {{profile.followers}}</li>
+                                    <li class="list-group-item">Following: <br> {{profile.following}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                
-                
                 </div>
-                        
-                
-            </div>
+            <!-- </div>
+            <div class="repos" *ngFor= "let repo of repos">
+                <p>
+                    {{repos.name}} 
+            </div> -->
         </div>
     </div>
 </div>
 <div class="footer">
-    <footer>&copy; Copyright  Antony Munyasia 2020 HTML.am</footer>
+    <footer>&copy; Copyright  Antony Munyasia 2020</footer>
 </div>
 
