@@ -8,24 +8,6 @@ import { Repository } from './repository';
   providedIn: 'root'
 })
 
-// export class ProfileService {
-//   private profile: any;
-//   private repos: any;
- 
-//   private username:string;
-//   private token = '33b3ec335783e556794cb6672dceee70ef8b59e3'
-
-// constructor(private http:HttpClient) {
-//     this.username = 'Ashisoma';
-//    }
-//    getProfile(){
-//      return this.http.get('https:api.github.com/users/' + this.username + '?access_token=' + this.token )
-//    }
-//    getRepo(){
-//     return this.http.get('https://api.github.com/users/' + this.username + '/repos')
-//   }
-// }
-
 export class ProfileService {
   foundUser: User;
   allRepos: Repository;
@@ -40,7 +22,7 @@ export class ProfileService {
   searchUSer(searchName: string) {
    
     interface Responce {
-      url:string,login: string; html_url:string;location:string; public_repos:number; followers:number; following:number; avatar_url:string; created_at:Date;
+      url:string,login: string, html_url:string, location:string,  public_repos:number, followers:number, following:number, avatar_url:string, created_at:Date;
     }
 
     return new Promise((resolve, reject) => {
@@ -57,8 +39,8 @@ export class ProfileService {
       );
     });
   }
-  getReopos(searchName){
-    interface Repos{
+  getRepos(searchName){
+    interface Repository{
       name:string;
       html_url:string;
       description:string;
@@ -68,7 +50,7 @@ export class ProfileService {
       created_at:Date;
     }
     return new Promise((resolve,reject)=>{
-      this.http.get<Repos>('https://api.github.com/users/Antony-me/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Repository>('https://api.github.com/users/Antony-me/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
         (results) => {
           this.allRepos = results;
           resolve();

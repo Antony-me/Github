@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileService } from './profile.service';
 import { SearchComponent } from './search/search.component';
+import { ReposComponent } from './repos/repos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    ReposComponent
   ],
   imports: [
     BrowserModule,

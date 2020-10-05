@@ -52,9 +52,22 @@ export class ProfileComponent implements OnInit {
           console.log(error)
         }
       );
-    }
+    
+    this.profileService.getRepos(searchName).then(
+      (results)=>{
+        this.repo =this.profileService.allRepos
+        console.log(this.repo);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+}
 
-    ngOnInit(): void {}
+
+    ngOnInit(): void {
+      this.searchs('Antony-me');
+    }
   
   }
 
