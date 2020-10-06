@@ -18,7 +18,7 @@ export class ProfileService {
  
 
   constructor(private http: HttpClient) {
-    this.users = new User("","","",0,0,0,"",new Date);
+    this.users = new User("","","","","","",0,0,0, new Date);
     this.allRepos = new Repository("","","",new Date);
   }
 
@@ -35,6 +35,7 @@ export class ProfileService {
       followers:number, 
       following:number, 
       avatar_url:string,
+      bio: any;
       created_at:Date;
     }
 
@@ -42,6 +43,7 @@ export class ProfileService {
       this.http.get<Responce>('https://api.github.com/users/' + searchName + '?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
         (getResponse) => {
           this.users.name = getResponse.name;
+          this.users.bio = getResponse.bio;
           this.users.html_url = getResponse.html_url;
           this.users.login = getResponse.login;
           this.users.avatar_url = getResponse.avatar_url;
@@ -71,7 +73,7 @@ export class ProfileService {
       this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
         (getRepoResponse) => {
           this.allRepos = getRepoResponse;
-          // console.log(this.allRepos);
+          console.log(this.allRepos);
           
           resolve();
         },

@@ -3,7 +3,7 @@
     widows: 5%;
     height: 15%;
 }
- .jumbotron p,h1{
+ .jumbotron h1, h5{
      text-align: center;
 }
  .jumbotron{
@@ -50,4 +50,16 @@
 .list-group{
     margin-top: 0%;
     width: 300%;
+}
+
+form input{
+    width: 70%;
+    margin: 2% 15%;
+
+}
+
+.btn{
+    align-content: center;
+    margin:5px auto;
+    
 }

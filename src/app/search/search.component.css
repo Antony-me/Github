@@ -3,6 +3,9 @@ form input{
     margin: 2% 15%;
 
 }
-/* form button{
-    text-align: center;
-} */
+
+.btn{
+    align-content: center;
+    margin:5px auto;
+    
+}
