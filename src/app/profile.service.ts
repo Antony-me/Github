@@ -4,6 +4,7 @@ import { User } from './user';
 import { Repository } from './repository';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,9 +45,6 @@ export class ProfileService {
       name:string;
       html_url:string;
       description:string;
-      forks:number;
-      watchers_count:number;
-      language:string;
       created_at:Date;
     }
     return new Promise((resolve,reject)=>{
@@ -58,8 +56,7 @@ export class ProfileService {
         (error) => {
           console.log(error);
           reject();
-        }
-      );
+        });
     });
   }
 

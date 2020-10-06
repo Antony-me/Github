@@ -9,18 +9,26 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileService } from './profile.service';
 import { SearchComponent } from './search/search.component';
 import { ReposComponent } from './repos/repos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    SearchComponent,
-    ReposComponent
+    ReposComponent,
+    SearchComponent
+    
+    
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    
+    
   ],
   
   providers: [ProfileService],

@@ -23,7 +23,7 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">Username: <br>{{user.login}}</li>
                                     <li class="list-group-item">Number of repos:<br>{{user.public_repos}}</li>
-                                    <li class="list-group-item">Bio:<br>{{user.bio}}</li>
+                                    <!-- <li class="list-group-item">Bio:<br>{{user.bio}}</li> -->
                                     <li class="list-group-item">Followers: <br>{{user.followers}}</li>
                                     <li class="list-group-item">Following: <br>{{user.following}}</li>
                                     <li class="list-group-item">Date Created: <br>{{user.created_at}}</li>
@@ -35,11 +35,8 @@
             </div>
         </div>
         <div>
-            <p>repo works <br>
-            {{repository.name}}</p>
-
+            <app-repos></app-repos>
         </div>
-        
     </div>
 </div>
 <div class="footer">

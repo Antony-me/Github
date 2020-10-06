@@ -1,3 +1,17 @@
-<div class="search">
+<!-- <div class="search">
     <input type="text" placeholder="Search git-username">
 </div>
+ -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <form class="form-inline active-cyan-4">
+          <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search Github username"  name="searchName" [(ngModel)]="searchName" aria-label="Search">
+          <button class="btn btn-info  btn-sm" (click) = "search()">Search</button>
+        </form>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>

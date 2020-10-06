@@ -1,5 +1,8 @@
-.search input{
+form input{
     width: 70%;
     margin: 2% 15%;
 
+}
+form button{
+    text-align: center;
 }
