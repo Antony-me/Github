@@ -40,7 +40,7 @@ export class ProfileService {
     }
 
     const promise = new Promise((resolve, reject) => {
-      this.http.get<Responce>('https://api.github.com/users/' + searchName + '?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Responce>('https://api.github.com/users/' + searchName + '?access_token='+ environment.myApi).toPromise().then(
         (getResponse) => {
           this.users.name = getResponse.name;
           this.users.bio = getResponse.bio;
@@ -70,7 +70,7 @@ export class ProfileService {
       created_at:Date;
     }
     const myPromise = new Promise((resolve,reject)=>{
-      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token='+ environment.myApi).toPromise().then(
         (getRepoResponse) => {
           this.allRepos = getRepoResponse;
           console.log(this.allRepos);
@@ -92,7 +92,7 @@ export class ProfileService {
     }
 
     const promise = new Promise((resolve, reject) => {
-      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token='+ environment.myApi).toPromise().then(
         (getRepoResponse) => {
           this.allRepos = getRepoResponse;
           // console.log(this.allRepos);
