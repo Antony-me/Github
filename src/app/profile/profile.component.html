@@ -17,26 +17,25 @@
                         <div class="row">
                             <div class="col-sm-3">
                             
-                                <img src="{{profile.avatar_url}}" alt="">
+                                <img src="{{user.avatar_url}}" alt="">
                             </div>
                             <div class="col-ms-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item">Username: <br>{{profile.login}}</li>
-                                    <li class="list-group-item">Email: <br> {{profile.email}}</li>
-                                    <li class="list-group-item">Websites: <br> </li>
-                                    <li class="list-group-item">Bio:<br>{{profile.bio}}</li>
-                                    <li class="list-group-item">Followers: <br> {{profile.followers}}</li>
-                                    <li class="list-group-item">Following: <br> {{profile.following}}</li>
+                                    <li class="list-group-item">Username: <br>{{user.login}}</li>
+                                    <li class="list-group-item">Number of repos:<br>{{user.public_repos}}</li>
+                                    <!-- <li class="list-group-item">Bio:<br>{{user.bio}}</li> -->
+                                    <li class="list-group-item">Followers: <br>{{user.followers}}</li>
+                                    <li class="list-group-item">Following: <br>{{user.following}}</li>
+                                    <li class="list-group-item">Date Created: <br>{{user.created_at}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            <!-- </div>
-            <div class="repos" *ngFor= "let repo of repos">
-                <p>
-                    {{repos.name}} 
-            </div> -->
+            </div>
+        </div>
+        <div>
+            <app-repos></app-repos>
         </div>
     </div>
 </div>
