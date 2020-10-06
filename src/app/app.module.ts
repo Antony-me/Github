@@ -10,13 +10,17 @@ import { ProfileService } from './profile.service';
 import { SearchComponent } from './search/search.component';
 import { ReposComponent } from './repos/repos.component';
 import { FormsModule } from '@angular/forms';
+import { DateCountPipe } from './date-count.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     ReposComponent,
-    SearchComponent
+    SearchComponent,
+    DateCountPipe,
+    HighlightDirective
     
     
     
