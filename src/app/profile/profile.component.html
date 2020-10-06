@@ -33,12 +33,12 @@
                             </div>
                             <div class="col-ms-5">
                                 <ul class="list-group">
-                                    <li class="list-group-item">Username: <br>{{user.login}}</li>
-                                    <li class="list-group-item">Number of repos:<br>{{user.public_repos}}</li>
-                                    <li class="list-group-item">Bio:<br>{{user.bio}}</li>
-                                    <li class="list-group-item">Followers: <br>{{user.followers}}</li>
-                                    <li class="list-group-item">Following: <br>{{user.following}}</li>
-                                    <li class="list-group-item">Date Created: <br>{{user.created_at | dateCount}}</li>
+                                    <li class="list-group-item"> <strong> Name:</strong> <br>{{user.name}}</li>
+                                    <li class="list-group-item"><strong>Number of repos: </strong><br>{{user.public_repos}}</li>
+                                    <li class="list-group-item"><strong>Bio</strong>:<br>{{user.bio}} </li>
+                                    <li class="list-group-item"><strong>Followers:</strong> <br>{{user.followers}}</li>
+                                    <li class="list-group-item"><strong>Following:</strong> <br>{{user.following}}</li>
+                                    <li class="list-group-item"><strong>Joined</strong>: <br>{{user.created_at | dateCount}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
     </div>
     
     <h3>Repositories</h3>
-    <div *ngFor="let repo of repos" id="repos">
+    <div *ngFor="let repo of repos" id="repos" appHighlight>
         <div class="col-md-6">
 
         <p>
