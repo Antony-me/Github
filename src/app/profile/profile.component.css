@@ -1,14 +1,17 @@
+
 .profile-photo{
     background-color: yellow;
     widows: 5%;
     height: 15%;
 }
- .jumbotron h1, h5{
+ .jumbotron h1, h5, h3{
      text-align: center;
+     margin-top: 5px;
 }
  .jumbotron{
-     background-color:aqua;
+     background-color:rgb(8, 190, 190);
      color: rgb(2, 2, 41);
+     
 }
 
 
@@ -45,6 +48,7 @@
 
 .card{
     background-color: grey;
+    
 }
 
 .list-group{
@@ -62,4 +66,13 @@ form input{
     align-content: center;
     margin:5px auto;
     
+}
+
+#repos{
+    border: 3px solid red;
+    width: 50%;
+    margin: 20px auto;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
 }

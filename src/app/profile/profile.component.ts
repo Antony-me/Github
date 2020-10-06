@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
 import { Repository } from '../repository';
 import { User } from '../user';
+import { DateCountPipe } from '../date-count.pipe';
 
 
 @Component({
