@@ -23,7 +23,7 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">Username: <br>{{user.login}}</li>
                                     <li class="list-group-item">Number of repos:<br>{{user.public_repos}}</li>
-                                    <!-- <li class="list-group-item">Bio:<br>{{user.bio}}</li> -->
+                                    <!-- <li class="list-group-item">Bio:<br>{{repo.Array(14).name}}</li> -->
                                     <li class="list-group-item">Followers: <br>{{user.followers}}</li>
                                     <li class="list-group-item">Following: <br>{{user.following}}</li>
                                     <li class="list-group-item">Date Created: <br>{{user.created_at}}</li>
@@ -34,12 +34,14 @@
                 </div>
             </div>
         </div>
-        <div>
-            <app-repos></app-repos>
-        </div>
     </div>
-</div>
-<div class="footer">
+    <div *ngFor="let repo of repos">
+        <p>
+            {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-sm btn-warning">View this on github</a>
+        </p>
+    </div>
+
+    <div class="footer">
     <footer>&copy; Copyright  Antony Munyasia 2020</footer>
 </div>
 

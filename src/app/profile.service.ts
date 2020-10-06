@@ -39,7 +39,7 @@ export class ProfileService {
     }
 
     const promise = new Promise((resolve, reject) => {
-      this.http.get<Responce>('https://api.github.com/users/Antony-me?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Responce>('https://api.github.com/users/' + searchName + '?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
         (getResponse) => {
           this.users.name = getResponse.name;
           this.users.html_url = getResponse.html_url;
@@ -71,6 +71,8 @@ export class ProfileService {
       this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
         (getRepoResponse) => {
           this.allRepos = getRepoResponse;
+          // console.log(this.allRepos);
+          
           resolve();
         },
         (error) => {
@@ -88,16 +90,19 @@ export class ProfileService {
     }
 
     const promise = new Promise((resolve, reject) => {
-        this.http.get<ApiResponse>('https://api.github.com/search/repositories?q=' + searchName + ' &per_page=10?token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(getRepoResponse => {
-            this.searchRepo = getRepoResponse.items;
-
-            resolve();
-        }, error => {
-            this.searchRepo = 'error';
-            reject(error);
+      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+        (getRepoResponse) => {
+          this.allRepos = getRepoResponse;
+          // console.log(this.allRepos);
+          
+          resolve();
+        },
+        (error) => {
+          console.log(error);
+          reject();
         });
     });
     return promise;
-}
+  }
 
 } 
