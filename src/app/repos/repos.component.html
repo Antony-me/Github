@@ -1,4 +1,19 @@
-<div>
-
-    <!-- <h1>repo name {{repository.html_url}}</h1> -->
-</div>
+<div class="table">
+    <table class="table">
+      <tbody>
+       <tr *ngFor=" let repository of RepoService.searchRepo" >
+        <td>
+          <h4>
+            <a style="text-align: center" href="{{repository.html_url}} " >{{repository.name}}</a>
+          </h4>
+          <p > Repository Owner:
+            <a href="{{repository.owner.html_url}}">{{repository.owner.login}}</a>
+          </p>
+          <p>Updated on {{repository.created_at|date}}</p>
+          <p>Description : {{repository.description}}</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+  </div>

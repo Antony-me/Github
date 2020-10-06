@@ -14,23 +14,22 @@ import { User } from '../user';
 
 export class ReposComponent implements OnInit {
 
-  repo: Repository;
-  constructor( public RepoService: ProfileService ) { }
+  repository: Repository;
+  searchRepo: string;
 
-  repoSearch(searchName){
-    this.RepoService.getRepos(searchName).then(
-      (results)=>{
-        this.repo =this.RepoService.allRepos
-        console.log(this.repo);
-      },
-      (error)=>{
-        console.log(error);
-      }
-    );
+  searchRepos(){
+    this.searchRepo = "";
+    this.getProfileFun();
   }
 
+  constructor( public RepoService: ProfileService ) { }
+
   ngOnInit() {
+    this.RepoService.gitRepos(this.searchRepo)
     
+  }
+  getProfileFun(){
+    this.RepoService.gitRepos(this.searchRepo)
   }
  
 }

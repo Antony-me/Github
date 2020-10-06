@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     searchs(searchName) {
       this.profileService.searchUSer(searchName).then(
         (success)=>{
-          this.user = this.profileService.foundUser;
+          this.user = this.profileService.users;
         },
         (error)=>{
           console.log(error)
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
     );
    }
     ngOnInit(): void {
-      this.searchs('Antony-me');
+      this.searchs('searchName');
     }
   
   }
