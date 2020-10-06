@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
-import { Subscription } from 'rxjs';
 import { Repository } from '../repository';
 import { User } from '../user';
-import { ReposComponent } from '../repos/repos.component';
+
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +14,8 @@ export class ProfileComponent implements OnInit {
 
 
   user: User;
-  repo: Repository;
+  repos: Repository;
+  searchName = 'Antony-me'
 
 
     constructor(public profileService: ProfileService) {
@@ -25,16 +25,16 @@ export class ProfileComponent implements OnInit {
       this.profileService.searchUSer(searchName).then(
         (success)=>{
           this.user = this.profileService.users;
+          // console.log(this.user);
         },
         (error)=>{
           console.log(error)
         }
-      );
-    
+      ); 
     this.profileService.getRepos(searchName).then(
-      (results)=>{
-        this.repo =this.profileService.allRepos
-        console.log(this.repo);
+      (repos)=>{
+        this.repos =this.profileService.allRepos;
+        console.log(this.repos);
       },
       (error)=>{
         console.log(error);
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
     );
    }
     ngOnInit(): void {
-      this.searchs('searchName');
+      this.searchs(this.searchName)
     }
   
   }

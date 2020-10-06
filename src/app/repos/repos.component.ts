@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService} from '../profile.service';
 import { Repository } from '../repository';
-import { User } from '../user';
+
 
 
 
@@ -15,21 +15,23 @@ import { User } from '../user';
 export class ReposComponent implements OnInit {
 
   repository: Repository;
-  searchRepo: string;
+  allRepo: string;
 
   searchRepos(){
-    this.searchRepo = "";
+    this.allRepo = "";
     this.getProfileFun();
   }
 
   constructor( public RepoService: ProfileService ) { }
 
   ngOnInit() {
-    this.RepoService.gitRepos(this.searchRepo)
+    this.RepoService.getRepos(this.allRepo)
     
   }
   getProfileFun(){
-    this.RepoService.gitRepos(this.searchRepo)
+    this.RepoService.getRepos(this.allRepo)
+    // console.log(this.allRepo);
+    
   }
  
 }

@@ -18,7 +18,7 @@ export class ProfileService {
  
 
   constructor(private http: HttpClient) {
-    this.users = new User("","","",0,0,0,"",new Date);
+    this.users = new User("","","","","","",0,0,0, new Date);
     this.allRepos = new Repository("","","",new Date);
   }
 
@@ -35,13 +35,15 @@ export class ProfileService {
       followers:number, 
       following:number, 
       avatar_url:string,
+      bio: any;
       created_at:Date;
     }
 
     const promise = new Promise((resolve, reject) => {
-      this.http.get<Responce>('https://api.github.com/users/Antony-me?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Responce>('https://api.github.com/users/' + searchName + '?access_token='+ environment.myApi).toPromise().then(
         (getResponse) => {
           this.users.name = getResponse.name;
+          this.users.bio = getResponse.bio;
           this.users.html_url = getResponse.html_url;
           this.users.login = getResponse.login;
           this.users.avatar_url = getResponse.avatar_url;
@@ -68,9 +70,11 @@ export class ProfileService {
       created_at:Date;
     }
     const myPromise = new Promise((resolve,reject)=>{
-      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(
+      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token='+ environment.myApi).toPromise().then(
         (getRepoResponse) => {
           this.allRepos = getRepoResponse;
+          console.log(this.allRepos);
+          
           resolve();
         },
         (error) => {
@@ -88,16 +92,19 @@ export class ProfileService {
     }
 
     const promise = new Promise((resolve, reject) => {
-        this.http.get<ApiResponse>('https://api.github.com/search/repositories?q=' + searchName + ' &per_page=10?token=33b3ec335783e556794cb6672dceee70ef8b59e3').toPromise().then(getRepoResponse => {
-            this.searchRepo = getRepoResponse.items;
-
-            resolve();
-        }, error => {
-            this.searchRepo = 'error';
-            reject(error);
+      this.http.get<Repository>('https://api.github.com/users/' + searchName + '/repos?order=created&sort=asc?access_token='+ environment.myApi).toPromise().then(
+        (getRepoResponse) => {
+          this.allRepos = getRepoResponse;
+          // console.log(this.allRepos);
+          
+          resolve();
+        },
+        (error) => {
+          console.log(error);
+          reject();
         });
     });
     return promise;
-}
+  }
 
 } 
